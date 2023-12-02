@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExchangeRates.Api", "Exchan
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExchangeRates.Contracts", "ExchangeRates.Contracts\ExchangeRates.Contracts.csproj", "{870140B4-F57A-47B1-A10F-94B60AD599BA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExchangeRates.InternalModels", "ExchangeRates.InternalModels\ExchangeRates.InternalModels.csproj", "{FBBD740A-B492-4218-AC64-CDD92F6A59B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExchangeRates.Services", "ExchangeRates.Services\ExchangeRates.Services.csproj", "{4EB3D166-6423-48FB-AC04-5517C6EA065A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{870140B4-F57A-47B1-A10F-94B60AD599BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{870140B4-F57A-47B1-A10F-94B60AD599BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{870140B4-F57A-47B1-A10F-94B60AD599BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBBD740A-B492-4218-AC64-CDD92F6A59B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBBD740A-B492-4218-AC64-CDD92F6A59B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBBD740A-B492-4218-AC64-CDD92F6A59B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBBD740A-B492-4218-AC64-CDD92F6A59B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EB3D166-6423-48FB-AC04-5517C6EA065A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EB3D166-6423-48FB-AC04-5517C6EA065A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EB3D166-6423-48FB-AC04-5517C6EA065A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EB3D166-6423-48FB-AC04-5517C6EA065A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
