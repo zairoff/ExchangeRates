@@ -1,5 +1,5 @@
 ﻿using ExchangeRates.Abstractions.Services;
-using ExchangeRates.Common;
+using ExchangeRates.Domain;
 using ExchangeRates.Contracts;
 using Microsoft.AspNetCore.Mvc;
 
