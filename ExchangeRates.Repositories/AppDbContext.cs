@@ -32,7 +32,7 @@ namespace ExchangeRates.Repositories
             {
                 IConfigurationRoot configuration = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json")
+                .AddJsonFile(Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), "../ExchangeRates.Api/appsettings.json")))
                 .Build();
 
                 var connectionString = configuration.GetSection("Database:SQL:Connection").Value;
