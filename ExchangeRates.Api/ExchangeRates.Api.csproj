@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ExchangeRates.Repositories\ExchangeRates.Repositories.csproj" />
     <ProjectReference Include="..\ExchangeRates.Services\ExchangeRates.Services.csproj" />
   </ItemGroup>
 

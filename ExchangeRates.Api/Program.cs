@@ -1,5 +1,8 @@
+using ExchangeRates.Abstractions.Repositories;
 using ExchangeRates.Abstractions.Services;
+using ExchangeRates.Repositories;
 using ExchangeRates.Services;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -32,4 +35,9 @@ app.Run();
 void RegisterServices(IServiceCollection services, IConfiguration configuration)
 {
     services.AddHttpClient<ICurrencyService, CurrencyService>();
+
+    services.AddDbContext<AppDbContext>(options =>
+                            options.UseSqlServer(configuration.GetConnectionString("Connection")));
+
+    services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 }

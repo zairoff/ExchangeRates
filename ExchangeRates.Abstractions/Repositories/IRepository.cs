@@ -6,9 +6,9 @@ namespace ExchangeRates.Abstractions.Repositories
     {
         Task AddAsync(T entity);
 
-        void Delete(T entity);
+        Task Delete(T entity);
 
-        void Update(T entity);
+        Task Update(T entity);
 
         Task<IEnumerable<T>> GetAllAsync();
 
