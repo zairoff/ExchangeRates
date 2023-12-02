@@ -1,4 +1,4 @@
-﻿namespace ExchangeRates.Common
+﻿namespace ExchangeRates.Domain
 {
     public class ExchangeRatesException : Exception
     {

@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace ExchangeRates.Common
+namespace ExchangeRates.Domain
 {
     public static class ResponseProcessor
     {

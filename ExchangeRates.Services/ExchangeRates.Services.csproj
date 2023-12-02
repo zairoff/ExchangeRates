@@ -13,7 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ExchangeRates.Abstractions\ExchangeRates.Abstractions.csproj" />
-    <ProjectReference Include="..\ExchangeRates.Common\ExchangeRates.Common.csproj" />
+    <ProjectReference Include="..\ExchangeRates.Common\ExchangeRates.Domain.csproj" />
     <ProjectReference Include="..\ExchangeRates.Contracts\ExchangeRates.Contracts.csproj" />
   </ItemGroup>
 
