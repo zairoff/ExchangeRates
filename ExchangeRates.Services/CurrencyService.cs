@@ -1,6 +1,6 @@
 ﻿using ExchangeRates.Abstractions.Services;
-using ExchangeRates.Domain;
 using ExchangeRates.Contracts;
+using ExchangeRates.Domain;
 using ExchangeRates.Services.Mappers;
 using Microsoft.Extensions.Configuration;
 
