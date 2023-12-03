@@ -2,7 +2,7 @@
 
 namespace ExchangeRates.Abstractions.Repositories
 {
-    public interface IRepository<T>
+    public interface IRepository<T> where T : class
     {
         Task AddAsync(T entity);
 

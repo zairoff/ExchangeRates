@@ -10,6 +10,11 @@ namespace ExchangeRates.Repositories
     {
         public DbSet<ExchangeRate> ExchangeRates { get; set; }
 
+        public AppDbContext()
+        {
+
+        }
+
         public AppDbContext(DbContextOptions options) : base(options)
         {
             
