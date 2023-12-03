@@ -48,9 +48,9 @@ namespace ExchangeRates.Api.Controllers
         {
             try
             {
-                var currencies = await _currencyOrchestration.GetLatestAsync();
+                var rates = await _currencyOrchestration.GetLatestAsync();
 
-                return new OkObjectResult(currencies);
+                return new OkObjectResult(rates);
             }
             catch (ExchangeRatesException ex)
             {

@@ -32,6 +32,7 @@ namespace ExchangeRates.Services
         {
             using var httpRequest = new HttpRequestMessage(HttpMethod.Get, $"{_url}/currencies.json?app_id={_apiKey}");
             using HttpResponseMessage httpResponse = await _httpClient.SendAsync(httpRequest);
+            var content = await httpResponse.Content.ReadAsStringAsync();
             var response = await httpResponse.ProcessResponseAsync<Dictionary<string, string>>();
 
             return CurrencyMapper.MapCurrencies(response);
