@@ -1,5 +1,7 @@
+using ExchangeRates.Abstractions.Orchestration;
 using ExchangeRates.Abstractions.Repositories;
 using ExchangeRates.Abstractions.Services;
+using ExchangeRates.Api.Orchestration;
 using ExchangeRates.Repositories;
 using ExchangeRates.Services;
 using Microsoft.EntityFrameworkCore;
@@ -35,9 +37,10 @@ app.Run();
 void RegisterServices(IServiceCollection services, IConfiguration configuration)
 {
     services.AddHttpClient<ICurrencyService, CurrencyService>();
+    services.AddScoped<ICurrencyOrchestration, CurrencyOrchestration>();
 
     services.AddDbContext<AppDbContext>(options =>
-                            options.UseSqlServer(configuration.GetConnectionString("Connection")));
+                            options.UseSqlServer(configuration.GetSection("Database:SQL:Connection").Value));
 
     services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 }

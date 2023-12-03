@@ -1,7 +1,7 @@
-﻿using ExchangeRates.Abstractions.Services;
-using ExchangeRates.Domain;
+﻿using ExchangeRates.Domain;
 using ExchangeRates.Contracts;
 using Microsoft.AspNetCore.Mvc;
+using ExchangeRates.Abstractions.Orchestration;
 
 namespace ExchangeRates.Api.Controllers
 {
@@ -9,12 +9,12 @@ namespace ExchangeRates.Api.Controllers
     [ApiController]
     public class CurrencyController : ControllerBase
     {
-        private readonly ICurrencyService _financialService;
+        private readonly ICurrencyOrchestration _currencyOrchestration;
         private readonly ILogger<CurrencyController> _logger;
 
-        public CurrencyController(ICurrencyService financialService, ILogger<CurrencyController> logger)
+        public CurrencyController(ICurrencyOrchestration currencyOrchestration, ILogger<CurrencyController> logger)
         {
-            _financialService = financialService;
+            _currencyOrchestration = currencyOrchestration;
             _logger = logger;
         }
 
@@ -23,7 +23,7 @@ namespace ExchangeRates.Api.Controllers
         {
             try
             {
-                var currencies = await _financialService.GetAsync();
+                var currencies = await _currencyOrchestration.GetAsync();
 
                 return new OkObjectResult(currencies);
             }
@@ -48,7 +48,7 @@ namespace ExchangeRates.Api.Controllers
         {
             try
             {
-                var currencies = await _financialService.GetLatestAsync();
+                var currencies = await _currencyOrchestration.GetLatestAsync();
 
                 return new OkObjectResult(currencies);
             }
@@ -72,7 +72,7 @@ namespace ExchangeRates.Api.Controllers
         {
             try
             {
-                var currencies = await _financialService.ConvertAsync(args.Value, args.From, args.To);
+                var currencies = await _currencyOrchestration.ConvertAsync(args.Value, args.From, args.To);
 
                 return new OkObjectResult(currencies);
             }

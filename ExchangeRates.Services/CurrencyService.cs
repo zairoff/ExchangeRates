@@ -1,6 +1,7 @@
 ﻿using ExchangeRates.Abstractions.Services;
 using ExchangeRates.Contracts;
 using ExchangeRates.Domain;
+using ExchangeRates.Domain.ThirdPartyServiceContracts;
 using ExchangeRates.Services.Mappers;
 using Microsoft.Extensions.Configuration;
 
@@ -36,13 +37,13 @@ namespace ExchangeRates.Services
             return CurrencyMapper.MapCurrencies(response);
         }
 
-        public async Task<IReadOnlyCollection<Currency>> GetLatestAsync()
+        public async Task<Dictionary<string, string>> GetLatestRateAsync()
         {
             using var httpRequest = new HttpRequestMessage(HttpMethod.Get, $"{_url}/latest.json?app_id={_apiKey}");
             using HttpResponseMessage httpResponse = await _httpClient.SendAsync(httpRequest);
-            var response = await httpResponse.ProcessResponseAsync<Dictionary<string, string>>();
+            var response = await httpResponse.ProcessResponseAsync<LatestCurrencyRates>();
 
-            return CurrencyMapper.MapCurrencies(response);
+            return response?.Rates;
         }
     }
 }
