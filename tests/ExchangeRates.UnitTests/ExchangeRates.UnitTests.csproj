@@ -27,10 +27,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ExchangeRates.Abstractions\ExchangeRates.Abstractions.csproj" />
-    <ProjectReference Include="..\ExchangeRates.Api\ExchangeRates.Api.csproj" />
-    <ProjectReference Include="..\ExchangeRates.Repositories\ExchangeRates.Repositories.csproj" />
-    <ProjectReference Include="..\ExchangeRates.Services\ExchangeRates.Services.csproj" />
+    <ProjectReference Include="..\..\src\ExchangeRates.Abstractions\ExchangeRates.Abstractions.csproj" />
+    <ProjectReference Include="..\..\src\ExchangeRates.Api\ExchangeRates.Api.csproj" />
+    <ProjectReference Include="..\..\src\ExchangeRates.Repositories\ExchangeRates.Repositories.csproj" />
+    <ProjectReference Include="..\..\src\ExchangeRates.Services\ExchangeRates.Services.csproj" />
   </ItemGroup>
 
 </Project>
