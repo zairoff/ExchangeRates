@@ -4,7 +4,11 @@ using ExchangeRates.Abstractions.Services;
 using ExchangeRates.Api.Orchestration;
 using ExchangeRates.Repositories;
 using ExchangeRates.Services;
+using FluentValidation.AspNetCore;
+using FluentValidation;
 using Microsoft.EntityFrameworkCore;
+using ExchangeRates.Contracts;
+using ExchangeRates.Api.Validators;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -43,4 +47,8 @@ void RegisterServices(IServiceCollection services, IConfiguration configuration)
                             options.UseSqlServer(configuration.GetSection("Database:SQL:Connection").Value));
 
     services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+
+    services.AddFluentValidationAutoValidation();
+    services.AddFluentValidationClientsideAdapters();
+    services.AddTransient<IValidator<ConvertArgs>, ConvertArgsValidator>();
 }
