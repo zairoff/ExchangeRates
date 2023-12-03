@@ -23,7 +23,7 @@ namespace ExchangeRates.Repositories
                 .Property(b => b.Rates)
                 .HasConversion(
                     x => JsonConvert.SerializeObject(x),
-                    x => JsonConvert.DeserializeObject<IReadOnlyCollection<Dictionary<string, string>>>(x));
+                    x => JsonConvert.DeserializeObject<Dictionary<string, string>>(x));
         }
 
         public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<AppDbContext>
