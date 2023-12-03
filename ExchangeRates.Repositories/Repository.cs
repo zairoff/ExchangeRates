@@ -6,16 +6,21 @@ namespace ExchangeRates.Repositories
 {
     public class Repository<T> : IRepository<T> where T : class
     {
-        protected readonly AppDbContext _context;
-        private DbSet<T> _dbSet;
+        private readonly AppDbContext _context;
+        private readonly DbSet<T> _dbSet;
 
-        public DbSet<T> DbSet => _dbSet ??= _context.Set<T>();
+        public Repository(AppDbContext context)
+        {
+            _context = context;
+            _dbSet = _context.Set<T>();
+        }
 
         public async Task AddAsync(T entity)
         {
             await _dbSet.AddAsync(entity);
 
-            await _context.SaveChangesAsync(); // since we are using simple and single operation, unitofwork pattern not required
+            // since we are using simple and single operation, unitofwork pattern not required
+            await _context.SaveChangesAsync(); 
         }
 
         public async Task Delete(T entity)
@@ -27,17 +32,17 @@ namespace ExchangeRates.Repositories
 
         public async Task<T> FindAsync(Expression<Func<T, bool>> expression)
         {
-            return await DbSet.Where(expression).FirstOrDefaultAsync();
+            return await _dbSet.Where(expression).FirstOrDefaultAsync();
         }
 
         public async Task<IEnumerable<T>> GetAllAsync()
         {
-            return await DbSet.ToListAsync();
+            return await _dbSet.ToListAsync();
         }
 
         public async Task Update(T entity)
         {
-            DbSet.Update(entity);
+            _dbSet.Update(entity);
 
             await _context.SaveChangesAsync();
         }

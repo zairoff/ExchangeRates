@@ -7,5 +7,7 @@
         public string Base { get; set; }
 
         public IReadOnlyCollection<Dictionary<string, string>> Rates { get; set; }
+
+        public DateTime Date { get; set; }
     }
 }
