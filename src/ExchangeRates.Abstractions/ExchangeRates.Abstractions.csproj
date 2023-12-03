@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ExchangeRates.Contracts\ExchangeRates.Contracts.csproj" />
-    <ProjectReference Include="..\ExchangeRates.InternalModels\ExchangeRates.InternalModels.csproj" />
   </ItemGroup>
 
 </Project>
